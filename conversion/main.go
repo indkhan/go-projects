@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
@@ -15,5 +17,13 @@ func main() {
 	input, _ := reader.ReadString('\n')
 
 	println("thanks for rating us ", input)
+
+	numRating, err := strconv.ParseFloat(strings.TrimSpace(input), 64)
+
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("Added 1 to your rating and the rating now is : ", numRating+1)
+	}
 
 }
